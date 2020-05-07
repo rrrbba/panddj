@@ -11,5 +11,8 @@ class Note(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
 
 class PersonalNote(Note):
+  
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    notecontent = models.TextField(blank=True)
     #on_delete=models.CASCADE helps with the integrity of the data. In relational databases, one of the principles is to protect consistency. There shouldn’t be an item in one table that references the foreign key of something that has been removed from another. 
+
